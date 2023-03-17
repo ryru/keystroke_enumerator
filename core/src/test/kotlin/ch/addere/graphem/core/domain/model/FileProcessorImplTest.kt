@@ -1,45 +1,110 @@
 package ch.addere.graphem.core.domain.model
 
 import org.junit.jupiter.api.Test
-import java.nio.file.Path
-import kotlin.io.path.createTempFile
-import kotlin.io.path.writeLines
+import java.io.File
 import kotlin.test.assertEquals
-import kotlin.test.assertNull
+import kotlin.text.Charsets.ISO_8859_1
+import kotlin.text.Charsets.UTF_16
 import kotlin.text.Charsets.UTF_8
 
 class FileProcessorImplTest {
 
     @Test
-    fun testReadFile() {
-        val tmpFile = tempFileWithMultipleLines(
-            """
-                        a
-                        bb
-                        ccc
-                        dddd
-                    """
-        )
+    fun testReadCFileWithSpaceInUtf8() {
         val fileProcessor = FileProcessorImpl()
 
-        val result = fileProcessor.countGraphems(tmpFile.toFile(), UTF_8)
+        val cFile = File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_utf8.c")
+        val result = fileProcessor.countGraphems(cFile, UTF_8)
 
-        assertEquals(4, result.totalLineBreaks)
-        assertEquals(10, result.totalProcessedGraphems)
-        assertEquals(1, result.graphemsMap['a'])
-        assertEquals(2, result.graphemsMap['b'])
-        assertEquals(3, result.graphemsMap['c'])
-        assertEquals(4, result.graphemsMap['d'])
-        assertNull(result.graphemsMap['A'])
-        assertNull(result.graphemsMap['B'])
-        assertNull(result.graphemsMap['C'])
-        assertNull(result.graphemsMap['D'])
-        assertNull(result.graphemsMap['E'])
+        assertEquals(89, result.totalProcessedGraphems)
+        assertContent(result)
     }
 
-    private fun tempFileWithMultipleLines(s: String): Path {
-        val tmpFile = createTempFile("test")
-        tmpFile.writeLines(s.trimIndent().lineSequence())
-        return tmpFile
+    @Test
+    fun testReadCFileWithTabInUtf8() {
+        val fileProcessor = FileProcessorImpl()
+
+        val cFile = File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_utf8.c")
+        val result = fileProcessor.countGraphems(cFile, UTF_8)
+
+        assertEquals(83, result.totalProcessedGraphems)
+        assertContent(result)
+    }
+
+    @Test
+    fun testReadCFileWithSpaceInUtf16() {
+        val fileProcessor = FileProcessorImpl()
+
+        val cFile = File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_utf16.c")
+        val result = fileProcessor.countGraphems(cFile, UTF_16)
+
+        assertEquals(89, result.totalProcessedGraphems)
+        assertContent(result)
+    }
+
+    @Test
+    fun testReadCFileWithTabInUtf16() {
+        val fileProcessor = FileProcessorImpl()
+
+        val cFile = File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_utf16.c")
+        val result = fileProcessor.countGraphems(cFile, UTF_16)
+
+        assertEquals(83, result.totalProcessedGraphems)
+        assertContent(result)
+    }
+
+    @Test
+    fun testReadCFileWithSpaceInWesternIso_8859_1() {
+        val fileProcessor = FileProcessorImpl()
+
+        val cFile = File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_western.c")
+        val result = fileProcessor.countGraphems(cFile, ISO_8859_1)
+
+        assertEquals(89, result.totalProcessedGraphems)
+        assertContent(result)
+    }
+
+    @Test
+    fun testReadCFileWithTabInWesternIso_8859_1() {
+        val fileProcessor = FileProcessorImpl()
+
+        val cFile = File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_western.c")
+        val result = fileProcessor.countGraphems(cFile, ISO_8859_1)
+
+        assertEquals(83, result.totalProcessedGraphems)
+        assertContent(result)
+    }
+
+    private fun assertContent(result: FileResult) {
+        assertEquals("c", result.fileExtension)
+        assertEquals(7, result.totalLineBreaks)
+        assertEquals(3, result.graphemsMap['a'.code])
+        assertEquals(2, result.graphemsMap['c'.code])
+        assertEquals(3, result.graphemsMap['d'.code])
+        assertEquals(3, result.graphemsMap['e'.code])
+        assertEquals(1, result.graphemsMap['f'.code])
+        assertEquals(1, result.graphemsMap['g'.code])
+        assertEquals(2, result.graphemsMap['h'.code])
+        assertEquals(1, result.graphemsMap['H'.code])
+        assertEquals(5, result.graphemsMap['i'.code])
+        assertEquals(4, result.graphemsMap['l'.code])
+        assertEquals(1, result.graphemsMap['m'.code])
+        assertEquals(5, result.graphemsMap['n'.code])
+        assertEquals(3, result.graphemsMap['o'.code])
+        assertEquals(1, result.graphemsMap['p'.code])
+        assertEquals(6, result.graphemsMap['r'.code])
+        assertEquals(2, result.graphemsMap['s'.code])
+        assertEquals(4, result.graphemsMap['t'.code])
+        assertEquals(2, result.graphemsMap['u'.code])
+        assertEquals(1, result.graphemsMap['W'.code])
+        assertEquals(1, result.graphemsMap['#'.code])
+        assertEquals(1, result.graphemsMap['<'.code])
+        assertEquals(1, result.graphemsMap['>'.code])
+        assertEquals(1, result.graphemsMap['.'.code])
+        assertEquals(2, result.graphemsMap['('.code])
+        assertEquals(2, result.graphemsMap[')'.code])
+        assertEquals(2, result.graphemsMap['*'.code])
+        assertEquals(1, result.graphemsMap['{'.code])
+        assertEquals(1, result.graphemsMap['}'.code])
     }
 }

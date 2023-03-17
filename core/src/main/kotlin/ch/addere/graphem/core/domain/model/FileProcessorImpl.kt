@@ -5,27 +5,28 @@ import java.nio.charset.Charset
 
 class FileProcessorImpl : FileProcessor {
 
-    private var graphems = mutableMapOf<Char, Int>()
+    private var graphems = mutableMapOf<Int, Int>()
 
     override fun countGraphems(file: File, charset: Charset): FileResult {
         var countLineBreaks = 0
         var countGraphems = 0
         file.forEachLine(charset = charset) { line ->
             countLineBreaks++
+            countGraphems++ // count line break character
             line.chars().forEach { char ->
                 countGraphems++
-                add(char.toChar())
+                addGraphems(char)
             }
         }
-        return FileResult(graphems, countLineBreaks, countGraphems)
+        return FileResult(file.extension, graphems, countLineBreaks, countGraphems)
     }
 
-    private fun add(char: Char) {
-        if (graphems.containsKey(char)) {
-            val counter = graphems[char]!!
-            graphems[char] = counter.inc()
+    private fun addGraphems(graphem: Int) {
+        if (graphems.containsKey(graphem)) {
+            val counter = graphems[graphem]!!
+            graphems[graphem] = counter.inc()
         } else {
-            graphems[char] = 1
+            graphems[graphem] = 1
         }
     }
 }

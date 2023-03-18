@@ -2,7 +2,14 @@ package ch.addere.graphem.core.domain.model
 
 data class FileResult(
     val fileExtension: String,
-    val graphemsMap: Map<Int, Int>,
-    val totalLineBreaks: Int,
-    val totalProcessedGraphems: Int
-)
+    val symbolCounter: SymbolCounter
+) {
+
+    fun totalSymbolsProcessed(): Int {
+        return symbolCounter.totalSymbolsProcessed()
+    }
+
+    fun totalLineBreaks(): Int {
+        return symbolCounter.getSymbolCount(LINE_BREAK)
+    }
+}

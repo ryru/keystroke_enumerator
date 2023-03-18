@@ -21,7 +21,7 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_utf8.c")
             val result = fileProcessor.countGraphems(cFile, UTF_8)
 
-            assertEquals(89, result.totalProcessedGraphems)
+            assertEquals(89, result.totalSymbolsProcessed())
             assertContent(result)
         }
 
@@ -33,7 +33,7 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_utf8.c")
             val result = fileProcessor.countGraphems(cFile, UTF_8)
 
-            assertEquals(83, result.totalProcessedGraphems)
+            assertEquals(83, result.totalSymbolsProcessed())
             assertContent(result)
         }
 
@@ -45,7 +45,7 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_utf16.c")
             val result = fileProcessor.countGraphems(cFile, UTF_16)
 
-            assertEquals(89, result.totalProcessedGraphems)
+            assertEquals(89, result.totalSymbolsProcessed())
             assertContent(result)
         }
 
@@ -57,7 +57,7 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_utf16.c")
             val result = fileProcessor.countGraphems(cFile, UTF_16)
 
-            assertEquals(83, result.totalProcessedGraphems)
+            assertEquals(83, result.totalSymbolsProcessed())
             assertContent(result)
         }
 
@@ -69,7 +69,7 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_western.c")
             val result = fileProcessor.countGraphems(cFile, ISO_8859_1)
 
-            assertEquals(89, result.totalProcessedGraphems)
+            assertEquals(89, result.totalSymbolsProcessed())
             assertContent(result)
         }
 
@@ -81,41 +81,44 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_western.c")
             val result = fileProcessor.countGraphems(cFile, ISO_8859_1)
 
-            assertEquals(83, result.totalProcessedGraphems)
+            assertEquals(83, result.totalSymbolsProcessed())
             assertContent(result)
         }
 
         private fun assertContent(result: FileResult) {
             assertEquals("c", result.fileExtension)
-            assertEquals(7, result.totalLineBreaks)
-            assertEquals(3, result.graphemsMap['a'.code])
-            assertEquals(2, result.graphemsMap['c'.code])
-            assertEquals(3, result.graphemsMap['d'.code])
-            assertEquals(3, result.graphemsMap['e'.code])
-            assertEquals(1, result.graphemsMap['f'.code])
-            assertEquals(1, result.graphemsMap['g'.code])
-            assertEquals(2, result.graphemsMap['h'.code])
-            assertEquals(1, result.graphemsMap['H'.code])
-            assertEquals(5, result.graphemsMap['i'.code])
-            assertEquals(4, result.graphemsMap['l'.code])
-            assertEquals(1, result.graphemsMap['m'.code])
-            assertEquals(5, result.graphemsMap['n'.code])
-            assertEquals(3, result.graphemsMap['o'.code])
-            assertEquals(1, result.graphemsMap['p'.code])
-            assertEquals(6, result.graphemsMap['r'.code])
-            assertEquals(2, result.graphemsMap['s'.code])
-            assertEquals(4, result.graphemsMap['t'.code])
-            assertEquals(2, result.graphemsMap['u'.code])
-            assertEquals(1, result.graphemsMap['W'.code])
-            assertEquals(1, result.graphemsMap['#'.code])
-            assertEquals(1, result.graphemsMap['<'.code])
-            assertEquals(1, result.graphemsMap['>'.code])
-            assertEquals(1, result.graphemsMap['.'.code])
-            assertEquals(2, result.graphemsMap['('.code])
-            assertEquals(2, result.graphemsMap[')'.code])
-            assertEquals(2, result.graphemsMap['*'.code])
-            assertEquals(1, result.graphemsMap['{'.code])
-            assertEquals(1, result.graphemsMap['}'.code])
+            assertEquals(7, result.totalLineBreaks())
+
+            val symbolMap = result.symbolCounter.getSymbolCounts()
+
+            assertEquals(3, symbolMap[A])
+            assertEquals(2, symbolMap[C])
+            assertEquals(3, symbolMap[D])
+            assertEquals(3, symbolMap[E])
+            assertEquals(1, symbolMap[F])
+            assertEquals(1, symbolMap[G])
+            assertEquals(2, symbolMap[H])
+            assertEquals(1, symbolMap[H_CAPITAL])
+            assertEquals(5, symbolMap[I])
+            assertEquals(4, symbolMap[L])
+            assertEquals(1, symbolMap[M])
+            assertEquals(5, symbolMap[N])
+            assertEquals(3, symbolMap[O])
+            assertEquals(1, symbolMap[P])
+            assertEquals(6, symbolMap[R])
+            assertEquals(2, symbolMap[S])
+            assertEquals(4, symbolMap[T])
+            assertEquals(2, symbolMap[U])
+            assertEquals(1, symbolMap[W_CAPITAL])
+            assertEquals(1, symbolMap[Symbol('#'.code)])
+            assertEquals(1, symbolMap[Symbol('<'.code)])
+            assertEquals(1, symbolMap[Symbol('>'.code)])
+            assertEquals(1, symbolMap[Symbol('.'.code)])
+            assertEquals(2, symbolMap[Symbol('('.code)])
+            assertEquals(2, symbolMap[Symbol(')'.code)])
+            assertEquals(2, symbolMap[Symbol('*'.code)])
+            assertEquals(1, symbolMap[Symbol('{'.code)])
+            assertEquals(1, symbolMap[Symbol('}'.code)])
         }
     }
 
@@ -130,9 +133,9 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/special_characters_utf8.txt")
             val result = fileProcessor.countGraphems(specialFile, UTF_8)
 
-            assertEquals(35, result.totalProcessedGraphems)
+            assertEquals(35, result.totalSymbolsProcessed())
             assertEquals("txt", result.fileExtension)
-            assertEquals(17, result.totalLineBreaks)
+            assertEquals(17, result.totalLineBreaks())
         }
 
         @Test
@@ -143,9 +146,9 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/special_characters_utf16.txt")
             val result = fileProcessor.countGraphems(specialFile, UTF_16)
 
-            assertEquals(35, result.totalProcessedGraphems)
+            assertEquals(35, result.totalSymbolsProcessed())
             assertEquals("txt", result.fileExtension)
-            assertEquals(17, result.totalLineBreaks)
+            assertEquals(17, result.totalLineBreaks())
         }
     }
 
@@ -160,9 +163,9 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/emoji_utf8.txt")
             val result = fileProcessor.countGraphems(specialFile, UTF_8)
 
-            assertEquals(18, result.totalProcessedGraphems)
+            assertEquals(18, result.totalSymbolsProcessed())
             assertEquals("txt", result.fileExtension)
-            assertEquals(4, result.totalLineBreaks)
+            assertEquals(4, result.totalLineBreaks())
         }
 
         @Test
@@ -173,9 +176,9 @@ class FileProcessorImplTest {
                 File("src/test/resources/ch/addere/graphem/core/domain/model/emoji_utf16.txt")
             val result = fileProcessor.countGraphems(specialFile, UTF_16)
 
-            assertEquals(18, result.totalProcessedGraphems)
+            assertEquals(18, result.totalSymbolsProcessed())
             assertEquals("txt", result.fileExtension)
-            assertEquals(4, result.totalLineBreaks)
+            assertEquals(4, result.totalLineBreaks())
         }
     }
 }

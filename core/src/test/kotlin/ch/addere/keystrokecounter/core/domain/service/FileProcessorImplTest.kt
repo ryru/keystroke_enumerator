@@ -43,6 +43,7 @@ class FileProcessorImplTest {
             val result = fileProcessor.countSymbols(cFile, UTF_8)
 
             assertEquals(88, result.totalSymbolsProcessed())
+            assertEquals(88, result.fileSize)
             assertContent(result)
         }
 
@@ -55,6 +56,7 @@ class FileProcessorImplTest {
             val result = fileProcessor.countSymbols(cFile, UTF_8)
 
             assertEquals(82, result.totalSymbolsProcessed())
+            assertEquals(82, result.fileSize)
             assertContent(result)
         }
 
@@ -67,6 +69,7 @@ class FileProcessorImplTest {
             val result = fileProcessor.countSymbols(cFile, UTF_16)
 
             assertEquals(88, result.totalSymbolsProcessed())
+            assertEquals(178, result.fileSize)
             assertContent(result)
         }
 
@@ -79,6 +82,7 @@ class FileProcessorImplTest {
             val result = fileProcessor.countSymbols(cFile, UTF_16)
 
             assertEquals(82, result.totalSymbolsProcessed())
+            assertEquals(166, result.fileSize)
             assertContent(result)
         }
 
@@ -91,6 +95,7 @@ class FileProcessorImplTest {
             val result = fileProcessor.countSymbols(cFile, ISO_8859_1)
 
             assertEquals(88, result.totalSymbolsProcessed())
+            assertEquals(88, result.fileSize)
             assertContent(result)
         }
 
@@ -103,6 +108,7 @@ class FileProcessorImplTest {
             val result = fileProcessor.countSymbols(cFile, ISO_8859_1)
 
             assertEquals(82, result.totalSymbolsProcessed())
+            assertEquals(82, result.fileSize)
             assertContent(result)
         }
 
@@ -155,6 +161,7 @@ class FileProcessorImplTest {
             val result = fileProcessor.countSymbols(specialFile, UTF_8)
 
             assertEquals("txt", result.fileExtension)
+            assertEquals(69, result.fileSize)
             assertEquals(34, result.totalSymbolsProcessed())
             assertEquals(17, result.totalLineBreaks())
         }
@@ -168,6 +175,7 @@ class FileProcessorImplTest {
             val result = fileProcessor.countSymbols(specialFile, UTF_16)
 
             assertEquals("txt", result.fileExtension)
+            assertEquals(72, result.fileSize)
             assertEquals(34, result.totalSymbolsProcessed())
             assertEquals(17, result.totalLineBreaks())
         }
@@ -180,11 +188,12 @@ class FileProcessorImplTest {
         fun testReadEmojiSymbolsInUtf8() {
             val fileProcessor = FileProcessorImpl()
 
-            val specialFile =
+            val emojiFile =
                 File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/emoji_utf8.txt")
-            val result = fileProcessor.countSymbols(specialFile, UTF_8)
+            val result = fileProcessor.countSymbols(emojiFile, UTF_8)
 
             assertEquals("txt", result.fileExtension)
+            assertEquals(32, result.fileSize)
             assertEquals(11, result.totalSymbolsProcessed())
             assertEquals(4, result.totalLineBreaks())
         }
@@ -193,11 +202,12 @@ class FileProcessorImplTest {
         fun testReadEmojiSymbolsInUtf16() {
             val fileProcessor = FileProcessorImpl()
 
-            val specialFile =
+            val emojiFile =
                 File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/emoji_utf16.txt")
-            val result = fileProcessor.countSymbols(specialFile, UTF_16)
+            val result = fileProcessor.countSymbols(emojiFile, UTF_16)
 
             assertEquals("txt", result.fileExtension)
+            assertEquals(38, result.fileSize)
             assertEquals(11, result.totalSymbolsProcessed())
             assertEquals(4, result.totalLineBreaks())
         }

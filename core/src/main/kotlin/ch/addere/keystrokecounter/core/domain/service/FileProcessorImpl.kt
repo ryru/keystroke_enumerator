@@ -21,6 +21,6 @@ class FileProcessorImpl : FileProcessor {
             .forEach { symbol ->
                 symbolCounter.count(symbol)
             }
-        return FileResult(file.extension, symbolCounter)
+        return FileResult(file.extension, file.length(), symbolCounter)
     }
 }

@@ -2,6 +2,7 @@ package ch.addere.keystrokecounter.core.domain.model
 
 data class FileResult(
     val fileExtension: String,
+    val fileSize: Long,
     val symbolCounter: SymbolCounter
 ) {
 

@@ -1,5 +1,9 @@
-package ch.addere.graphem.core.domain.model
+package ch.addere.graphem.core.domain.service
 
+import ch.addere.graphem.core.domain.model.FileResult
+import ch.addere.graphem.core.domain.model.LINE_BREAK
+import ch.addere.graphem.core.domain.model.Symbol
+import ch.addere.graphem.core.domain.model.SymbolCounter
 import java.io.File
 import java.nio.charset.Charset
 

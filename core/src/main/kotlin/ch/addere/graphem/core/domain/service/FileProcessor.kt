@@ -1,5 +1,6 @@
-package ch.addere.graphem.core.domain.model
+package ch.addere.graphem.core.domain.service
 
+import ch.addere.graphem.core.domain.model.FileResult
 import java.io.File
 import java.nio.charset.Charset
 

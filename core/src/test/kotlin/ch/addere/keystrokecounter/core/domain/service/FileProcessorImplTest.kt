@@ -1,26 +1,26 @@
-package ch.addere.graphem.core.domain.service
+package ch.addere.keystrokecounter.core.domain.service
 
-import ch.addere.graphem.core.domain.model.A
-import ch.addere.graphem.core.domain.model.C
-import ch.addere.graphem.core.domain.model.D
-import ch.addere.graphem.core.domain.model.E
-import ch.addere.graphem.core.domain.model.F
-import ch.addere.graphem.core.domain.model.FileResult
-import ch.addere.graphem.core.domain.model.G
-import ch.addere.graphem.core.domain.model.H
-import ch.addere.graphem.core.domain.model.H_CAPITAL
-import ch.addere.graphem.core.domain.model.I
-import ch.addere.graphem.core.domain.model.L
-import ch.addere.graphem.core.domain.model.M
-import ch.addere.graphem.core.domain.model.N
-import ch.addere.graphem.core.domain.model.O
-import ch.addere.graphem.core.domain.model.P
-import ch.addere.graphem.core.domain.model.R
-import ch.addere.graphem.core.domain.model.S
-import ch.addere.graphem.core.domain.model.Symbol
-import ch.addere.graphem.core.domain.model.T
-import ch.addere.graphem.core.domain.model.U
-import ch.addere.graphem.core.domain.model.W_CAPITAL
+import ch.addere.keystrokecounter.core.domain.model.A
+import ch.addere.keystrokecounter.core.domain.model.C
+import ch.addere.keystrokecounter.core.domain.model.D
+import ch.addere.keystrokecounter.core.domain.model.E
+import ch.addere.keystrokecounter.core.domain.model.F
+import ch.addere.keystrokecounter.core.domain.model.FileResult
+import ch.addere.keystrokecounter.core.domain.model.G
+import ch.addere.keystrokecounter.core.domain.model.H
+import ch.addere.keystrokecounter.core.domain.model.H_CAPITAL
+import ch.addere.keystrokecounter.core.domain.model.I
+import ch.addere.keystrokecounter.core.domain.model.L
+import ch.addere.keystrokecounter.core.domain.model.M
+import ch.addere.keystrokecounter.core.domain.model.N
+import ch.addere.keystrokecounter.core.domain.model.O
+import ch.addere.keystrokecounter.core.domain.model.P
+import ch.addere.keystrokecounter.core.domain.model.R
+import ch.addere.keystrokecounter.core.domain.model.S
+import ch.addere.keystrokecounter.core.domain.model.Symbol
+import ch.addere.keystrokecounter.core.domain.model.T
+import ch.addere.keystrokecounter.core.domain.model.U
+import ch.addere.keystrokecounter.core.domain.model.W_CAPITAL
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.io.File
@@ -39,8 +39,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val cFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_utf8.c")
-            val result = fileProcessor.countGraphems(cFile, UTF_8)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/main_whitespace_utf8.c")
+            val result = fileProcessor.countSymbols(cFile, UTF_8)
 
             assertEquals(88, result.totalSymbolsProcessed())
             assertContent(result)
@@ -51,8 +51,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val cFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_utf8.c")
-            val result = fileProcessor.countGraphems(cFile, UTF_8)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/main_tab_utf8.c")
+            val result = fileProcessor.countSymbols(cFile, UTF_8)
 
             assertEquals(82, result.totalSymbolsProcessed())
             assertContent(result)
@@ -63,8 +63,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val cFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_utf16.c")
-            val result = fileProcessor.countGraphems(cFile, UTF_16)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/main_whitespace_utf16.c")
+            val result = fileProcessor.countSymbols(cFile, UTF_16)
 
             assertEquals(88, result.totalSymbolsProcessed())
             assertContent(result)
@@ -75,8 +75,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val cFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_utf16.c")
-            val result = fileProcessor.countGraphems(cFile, UTF_16)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/main_tab_utf16.c")
+            val result = fileProcessor.countSymbols(cFile, UTF_16)
 
             assertEquals(82, result.totalSymbolsProcessed())
             assertContent(result)
@@ -87,8 +87,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val cFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/main_whitespace_western.c")
-            val result = fileProcessor.countGraphems(cFile, ISO_8859_1)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/main_whitespace_western.c")
+            val result = fileProcessor.countSymbols(cFile, ISO_8859_1)
 
             assertEquals(88, result.totalSymbolsProcessed())
             assertContent(result)
@@ -99,8 +99,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val cFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/main_tab_western.c")
-            val result = fileProcessor.countGraphems(cFile, ISO_8859_1)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/main_tab_western.c")
+            val result = fileProcessor.countSymbols(cFile, ISO_8859_1)
 
             assertEquals(82, result.totalSymbolsProcessed())
             assertContent(result)
@@ -151,8 +151,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val specialFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/special_characters_utf8.txt")
-            val result = fileProcessor.countGraphems(specialFile, UTF_8)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/special_characters_utf8.txt")
+            val result = fileProcessor.countSymbols(specialFile, UTF_8)
 
             assertEquals("txt", result.fileExtension)
             assertEquals(34, result.totalSymbolsProcessed())
@@ -164,8 +164,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val specialFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/special_characters_utf16.txt")
-            val result = fileProcessor.countGraphems(specialFile, UTF_16)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/special_characters_utf16.txt")
+            val result = fileProcessor.countSymbols(specialFile, UTF_16)
 
             assertEquals("txt", result.fileExtension)
             assertEquals(34, result.totalSymbolsProcessed())
@@ -181,8 +181,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val specialFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/emoji_utf8.txt")
-            val result = fileProcessor.countGraphems(specialFile, UTF_8)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/emoji_utf8.txt")
+            val result = fileProcessor.countSymbols(specialFile, UTF_8)
 
             assertEquals("txt", result.fileExtension)
             assertEquals(11, result.totalSymbolsProcessed())
@@ -194,8 +194,8 @@ class FileProcessorImplTest {
             val fileProcessor = FileProcessorImpl()
 
             val specialFile =
-                File("src/test/resources/ch/addere/graphem/core/domain/model/emoji_utf16.txt")
-            val result = fileProcessor.countGraphems(specialFile, UTF_16)
+                File("src/test/resources/ch/addere/keystrokecounter/core/domain/model/emoji_utf16.txt")
+            val result = fileProcessor.countSymbols(specialFile, UTF_16)
 
             assertEquals("txt", result.fileExtension)
             assertEquals(11, result.totalSymbolsProcessed())

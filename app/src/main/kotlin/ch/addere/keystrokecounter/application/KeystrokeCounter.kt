@@ -1,8 +1,4 @@
-package ch.addere.graphem.application
-
-class Graphem {
-
-}
+package ch.addere.keystrokecounter.application
 
 fun main(args: Array<String>) {
     println("Hello World!")

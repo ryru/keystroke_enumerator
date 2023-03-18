@@ -1,4 +1,4 @@
-rootProject.name = "Graphem"
+rootProject.name = "Keystroke Counter"
 
 include (
     "app",

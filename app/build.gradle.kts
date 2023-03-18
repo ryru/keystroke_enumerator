@@ -26,12 +26,12 @@ kotlin {
 }
 
 application {
-    mainClass.set("ch.addere.graphem.application.GraphemKt")
+    mainClass.set("ch.addere.keystrokecounter.application.KeystrokeCounterKt")
 }
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "ch.addere.graphem.application.GraphemKt"
+        attributes["Main-Class"] = "ch.addere.keystrokecounter.application.KeystrokeCounterKt"
     }
 
     // To avoid the duplicate handling strategy error

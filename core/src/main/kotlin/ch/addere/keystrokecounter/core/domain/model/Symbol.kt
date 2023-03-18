@@ -1,4 +1,4 @@
-package ch.addere.graphem.core.domain.model
+package ch.addere.keystrokecounter.core.domain.model
 
 /**
  * Represents any type sign that changes a document. A symbol can be any regular character or number

@@ -1,4 +1,4 @@
-package ch.addere.graphem.core.domain.model
+package ch.addere.keystrokecounter.core.domain.model
 
 data class FileResult(
     val fileExtension: String,

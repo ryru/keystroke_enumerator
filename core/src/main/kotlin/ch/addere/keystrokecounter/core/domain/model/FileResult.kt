@@ -1,5 +1,8 @@
 package ch.addere.keystrokecounter.core.domain.model
 
+import ch.addere.keystrokecounter.core.domain.model.symbol.LINE_BREAK
+import ch.addere.keystrokecounter.core.domain.model.symbol.SymbolCounter
+
 data class FileResult(
     val fileExtension: String,
     val fileSize: Long,

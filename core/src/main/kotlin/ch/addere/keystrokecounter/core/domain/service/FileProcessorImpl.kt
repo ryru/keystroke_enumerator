@@ -1,9 +1,9 @@
 package ch.addere.keystrokecounter.core.domain.service
 
 import ch.addere.keystrokecounter.core.domain.model.FileResult
-import ch.addere.keystrokecounter.core.domain.model.LINE_BREAK
-import ch.addere.keystrokecounter.core.domain.model.Symbol
-import ch.addere.keystrokecounter.core.domain.model.SymbolCounter
+import ch.addere.keystrokecounter.core.domain.model.symbol.LINE_BREAK
+import ch.addere.keystrokecounter.core.domain.model.symbol.Symbol
+import ch.addere.keystrokecounter.core.domain.model.symbol.SymbolCounter
 import java.io.File
 import java.nio.charset.Charset
 import kotlin.streams.toList

@@ -1,6 +1,6 @@
 package ch.addere.keystrokecounter.core.domain.model.key
 
-import ch.addere.keystrokecounter.core.domain.model.Symbol
+import ch.addere.keystrokecounter.core.domain.model.symbol.Symbol
 
 /**
  * A symbol maps to a list of keystrokes.

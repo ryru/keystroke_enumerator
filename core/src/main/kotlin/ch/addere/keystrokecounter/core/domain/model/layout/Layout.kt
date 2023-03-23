@@ -1,16 +1,21 @@
 package ch.addere.keystrokecounter.core.domain.model.layout
 
 import ch.addere.keystrokecounter.core.domain.model.key.SymbolKeyStroke
+import ch.addere.keystrokecounter.core.domain.model.symbol.Symbol
+import java.util.*
 
 /**
  * Keyboard layout consists of a name and a symbol to virtual key mapping.
  */
-data class Layout(val name: String, val symbolKeyMap: MutableSet<SymbolKeyStroke>) {
+class Layout(val name: String, private val symbolKeyMap: Set<SymbolKeyStroke>) {
 
     /**
-     * Add a symbol to virtual key mapping to this layout.
+     * Count keystrokes for given symbol or empty if symbol is not printable with layout.
      */
-    fun addSymbolToVirtualKeyMapping(symbolToVirtualKey: SymbolKeyStroke) {
-        symbolKeyMap.add(symbolToVirtualKey)
+    fun countKeystrokeFor(symbol: Symbol): Optional<Int> {
+        return symbolKeyMap.stream()
+            .filter { symbol == it.symbol }
+            .map { it.keyStrokeCount() }
+            .findFirst();
     }
 }

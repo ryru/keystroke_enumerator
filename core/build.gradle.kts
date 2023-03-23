@@ -11,7 +11,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.assertj:assertj-core:3.23.1")
+    implementation("org.apache.commons:commons-csv:1.10.0")
+
+    testImplementation("org.assertj:assertj-core:3.24.2")
     testImplementation(kotlin("test"))
 }
 

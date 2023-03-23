@@ -1,5 +1,20 @@
 package ch.addere.keystrokecounter.core.domain.model.key
 
+import kotlin.IllegalArgumentException
+
+/**
+ * Parse a CSV input string of concatenated keystrokes to a list of virtual keys.
+ */
+fun parse(input: String): List<VirtualKey> {
+    try {
+        return input.split("+")
+            .map { VirtualKey.valueOf(it) }
+            .toList()
+    } catch (e: IllegalArgumentException) {
+        throw IllegalArgumentException("No virtual key $input found.")
+    }
+}
+
 enum class VirtualKey {
     A,
     B,
@@ -41,12 +56,15 @@ enum class VirtualKey {
 
     TAB,
     CAPITAL,
+    SHIFT, // when it is unimportant whether left or right shift is used.
     LSHIFT,
     RSHIFT,
     LCONTROL,
     RCONTROL,
+    WIN, // when it s unimportant whether left or right win is used.
     LWIN,
     RWIN,
+    MENU, // when it s unimportant whether left or right menu is used.
     LMENU,
     RMENU,
     SPACE,

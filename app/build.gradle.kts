@@ -27,12 +27,12 @@ kotlin {
 }
 
 application {
-    mainClass.set("ch.addere.keystrokecounter.application.KeystrokeCounterKt")
+    mainClass.set("ch.addere.keystrokeenumerator.application.KeystrokeEnumeratorKt")
 }
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "ch.addere.keystrokecounter.application.KeystrokeCounterKt"
+        attributes["Main-Class"] = "ch.addere.keystrokeenumerator.application.KeystrokeEnumeratorKt"
     }
 
     // To avoid the duplicate handling strategy error

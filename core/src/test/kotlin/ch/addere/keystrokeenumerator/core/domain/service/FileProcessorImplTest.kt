@@ -2,25 +2,58 @@ package ch.addere.keystrokeenumerator.core.domain.service
 
 import domain.model.FileResult
 import domain.model.symbol.A
+import domain.model.symbol.A_CAPITAL
+import domain.model.symbol.B
+import domain.model.symbol.B_CAPITAL
 import domain.model.symbol.C
+import domain.model.symbol.C_CAPITAL
 import domain.model.symbol.D
+import domain.model.symbol.D_CAPITAL
 import domain.model.symbol.E
+import domain.model.symbol.E_CAPITAL
 import domain.model.symbol.F
+import domain.model.symbol.F_CAPITAL
 import domain.model.symbol.G
+import domain.model.symbol.G_CAPITAL
 import domain.model.symbol.H
 import domain.model.symbol.H_CAPITAL
 import domain.model.symbol.I
+import domain.model.symbol.I_CAPITAL
+import domain.model.symbol.J
+import domain.model.symbol.J_CAPITAL
+import domain.model.symbol.K
+import domain.model.symbol.K_CAPITAL
 import domain.model.symbol.L
+import domain.model.symbol.L_CAPITAL
 import domain.model.symbol.M
+import domain.model.symbol.M_CAPITAL
 import domain.model.symbol.N
+import domain.model.symbol.N_CAPITAL
 import domain.model.symbol.O
+import domain.model.symbol.O_CAPITAL
 import domain.model.symbol.P
+import domain.model.symbol.P_CAPITAL
+import domain.model.symbol.Q
+import domain.model.symbol.Q_CAPITAL
 import domain.model.symbol.R
+import domain.model.symbol.R_CAPITAL
 import domain.model.symbol.S
+import domain.model.symbol.S_CAPITAL
 import domain.model.symbol.Symbol
 import domain.model.symbol.T
+import domain.model.symbol.T_CAPITAL
 import domain.model.symbol.U
+import domain.model.symbol.U_CAPITAL
+import domain.model.symbol.V
+import domain.model.symbol.V_CAPITAL
+import domain.model.symbol.W
 import domain.model.symbol.W_CAPITAL
+import domain.model.symbol.X
+import domain.model.symbol.X_CAPITAL
+import domain.model.symbol.Y
+import domain.model.symbol.Y_CAPITAL
+import domain.model.symbol.Z
+import domain.model.symbol.Z_CAPITAL
 import domain.service.FileProcessorImpl
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -31,6 +64,72 @@ import kotlin.text.Charsets.UTF_16
 import kotlin.text.Charsets.UTF_8
 
 class FileProcessorImplTest {
+
+    @Test
+    fun testLoremIpsum() {
+        val fileProcessor = FileProcessorImpl()
+
+        val lorem = File("src/test/resources/singleFiles/lorem.txt")
+        val result = fileProcessor.countSymbols(lorem, UTF_8)
+
+        assertEquals(977, result.totalSymbolsProcessed())
+        assertEquals(977, result.fileSize)
+        assertEquals(1, result.totalLineBreaks())
+        assertEquals("txt", result.fileExtension)
+        assertEquals(34, result.symbolCounter.getSymbolCounts().size)
+        assertEquals(62, result.symbolCounter.getSymbolCounts()[A])
+        assertEquals(8, result.symbolCounter.getSymbolCounts()[B])
+        assertEquals(36, result.symbolCounter.getSymbolCounts()[C])
+        assertEquals(18, result.symbolCounter.getSymbolCounts()[D])
+        assertEquals(93, result.symbolCounter.getSymbolCounts()[E])
+        assertEquals(5, result.symbolCounter.getSymbolCounts()[F])
+        assertEquals(7, result.symbolCounter.getSymbolCounts()[G])
+        assertEquals(4, result.symbolCounter.getSymbolCounts()[H])
+        assertEquals(75, result.symbolCounter.getSymbolCounts()[I])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[J])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[K])
+        assertEquals(48, result.symbolCounter.getSymbolCounts()[L])
+        assertEquals(40, result.symbolCounter.getSymbolCounts()[M])
+        assertEquals(46, result.symbolCounter.getSymbolCounts()[N])
+        assertEquals(44, result.symbolCounter.getSymbolCounts()[O])
+        assertEquals(16, result.symbolCounter.getSymbolCounts()[P])
+        assertEquals(12, result.symbolCounter.getSymbolCounts()[Q])
+        assertEquals(43, result.symbolCounter.getSymbolCounts()[R])
+        assertEquals(70, result.symbolCounter.getSymbolCounts()[S])
+        assertEquals(68, result.symbolCounter.getSymbolCounts()[T])
+        assertEquals(71, result.symbolCounter.getSymbolCounts()[U])
+        assertEquals(5, result.symbolCounter.getSymbolCounts()[V])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[W])
+        assertEquals(6, result.symbolCounter.getSymbolCounts()[X])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[Y])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[Z])
+        assertEquals(1, result.symbolCounter.getSymbolCounts()[A_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[B_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[C_CAPITAL])
+        assertEquals(1, result.symbolCounter.getSymbolCounts()[D_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[E_CAPITAL])
+        assertEquals(2, result.symbolCounter.getSymbolCounts()[F_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[G_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[H_CAPITAL])
+        assertEquals(2, result.symbolCounter.getSymbolCounts()[I_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[J_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[K_CAPITAL])
+        assertEquals(1, result.symbolCounter.getSymbolCounts()[L_CAPITAL])
+        assertEquals(2, result.symbolCounter.getSymbolCounts()[M_CAPITAL])
+        assertEquals(1, result.symbolCounter.getSymbolCounts()[N_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[O_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[P_CAPITAL])
+        assertEquals(2, result.symbolCounter.getSymbolCounts()[Q_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[R_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[S_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[T_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[U_CAPITAL])
+        assertEquals(3, result.symbolCounter.getSymbolCounts()[V_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[W_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[X_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[Y_CAPITAL])
+        assertEquals(null, result.symbolCounter.getSymbolCounts()[Z_CAPITAL])
+    }
 
     @Nested
     class CProgrammingLanguage {

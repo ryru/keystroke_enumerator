@@ -59,6 +59,7 @@ enum class VirtualKey {
     SHIFT, // when it is unimportant whether left or right shift is used.
     LSHIFT,
     RSHIFT,
+    CONTROL, // when it is unimportant whether left or right control is used.
     LCONTROL,
     RCONTROL,
     WIN, // when it s unimportant whether left or right win is used.

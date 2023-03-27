@@ -1,8 +1,5 @@
 package domain.model.symbol
 
-import java.lang.IllegalArgumentException
-import kotlin.math.PI
-
 /**
  * Represents any type sign that changes a document. A symbol can be any regular character or number
  * such as 'a' or '2' as well as a whitespace or a tabulator. Even emojis are symbols.
@@ -16,6 +13,8 @@ data class Symbol(val value: Int)
  * Translate a symbol string into a symbol domain object.
  */
 fun from(symbolString: String): Symbol {
+
+
     return when (symbolString) {
         "TAB" -> TAB
         "RETURN" -> LINE_BREAK
@@ -114,11 +113,9 @@ fun from(symbolString: String): Symbol {
         "|" -> PIPE
         "}" -> CURLY_BRACKETS_CLOSE
         "~" -> TILDE
-        else -> UNKNOWN
+        else -> Symbol(symbolString.codePointAt(0))
     }
 }
-
-val UNKNOWN: Symbol = Symbol(0)
 
 val TAB: Symbol = Symbol('\t'.code)
 val LINE_BREAK: Symbol = Symbol('\n'.code)

@@ -9,7 +9,6 @@ import domain.service.FileTreeProcessorImpl
 import domain.service.load.LayoutLoader
 import domain.service.mergeSymbolCounters
 import java.io.File
-import kotlin.system.exitProcess
 import kotlin.text.Charsets.UTF_8
 import kotlin.time.Duration
 import kotlin.time.DurationUnit.SECONDS
@@ -52,7 +51,7 @@ private fun toStrokesPerLayouts(symbolToOccurrence: Map<Symbol, Int>): List<Layo
     val strokesPerLayouts = mutableListOf<LayoutResult>()
     for (layout in layouts) {
         val sum = symbolToOccurrence.entries.stream()
-            .mapToInt { layout.countKeystrokeFor(it.key).orElse(0) * it.value }
+            .mapToInt { layout.countKeystrokeFor(it.key) * it.value }
             .sum()
         strokesPerLayouts.add(LayoutResult(layout.name, sum))
     }

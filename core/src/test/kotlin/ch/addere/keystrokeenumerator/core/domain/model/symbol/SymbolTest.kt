@@ -85,7 +85,6 @@ import domain.model.symbol.TWO
 import domain.model.symbol.T_CAPITAL
 import domain.model.symbol.U
 import domain.model.symbol.UNDERSCORE
-import domain.model.symbol.UNKNOWN
 import domain.model.symbol.U_CAPITAL
 import domain.model.symbol.V
 import domain.model.symbol.V_CAPITAL
@@ -105,8 +104,8 @@ import org.assertj.core.api.Assertions.assertThat
 class SymbolTest {
 
     @Test
-    fun testSymbolFromStringUnknown() {
-        assertThat(from("Foo Bar Baz")).isEqualTo(UNKNOWN)
+    fun testSymbolFromStringUseFirstLetterInString() {
+        assertThat(from("Foo Bar Baz")).isEqualTo(F_CAPITAL)
     }
 
     @Test

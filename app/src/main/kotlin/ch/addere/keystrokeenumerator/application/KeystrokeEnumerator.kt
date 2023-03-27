@@ -71,10 +71,10 @@ private fun printHeader(results: List<FileResult>, duration: Duration, totalSymb
 }
 
 private fun printTable(strokesPerLayouts: List<LayoutResult>, totalSymbols: Int) {
-    println("Layout\tKeystrokes\tRedundancy")
+    println("Layout\tKeystrokes\tRedundancy[%]")
     strokesPerLayouts.sortedBy { it.totalKeystrokes }.forEach { strokesPerLayout ->
         val totalKeystrokes = strokesPerLayout.totalKeystrokes
-        val redundancy = totalKeystrokes / totalSymbols.toDouble() - 1.0
+        val redundancy = totalKeystrokes.toDouble() * 100 / totalSymbols.toDouble() - 100
         val layoutName = strokesPerLayout.layout
         println(String.format("$layoutName\t$totalKeystrokes\t\t%.3f", redundancy))
     }

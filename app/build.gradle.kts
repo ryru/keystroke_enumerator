@@ -3,8 +3,8 @@ plugins {
     application
 }
 
-group = "ch.addere"
-version = "1.0-SNAPSHOT"
+group = "ch.addere.keystrokeenumerator"
+version = "0.1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()

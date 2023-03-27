@@ -9,6 +9,7 @@ import domain.service.FileTreeProcessorImpl
 import domain.service.load.LayoutLoader
 import domain.service.mergeSymbolCounters
 import java.io.File
+import kotlin.system.exitProcess
 import kotlin.text.Charsets.UTF_8
 import kotlin.time.Duration
 import kotlin.time.DurationUnit.SECONDS
@@ -18,6 +19,12 @@ import kotlin.time.measureTimedValue
 
 @OptIn(ExperimentalTime::class)
 fun main(args: Array<String>) {
+
+    if (args.isEmpty()) {
+        println("Error: Require a file or path as argument")
+        return
+    }
+
     val measureTimedValue = processFiles(args[0])
     val results = measureTimedValue.value
 

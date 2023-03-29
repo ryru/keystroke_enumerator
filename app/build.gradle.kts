@@ -31,6 +31,8 @@ application {
 }
 
 tasks.withType<Jar> {
+    archiveFileName.set("ke.jar")
+
     manifest {
         attributes["Main-Class"] = "ch.addere.keystrokeenumerator.application.KeystrokeEnumeratorKt"
     }

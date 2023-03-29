@@ -1,4 +1,4 @@
-# Keystroke Enumerator
+# 🅺🅴 Keystroke Enumerator
 
 Count effective keystrokes made to type files based on keyboard layouts.
 
@@ -11,14 +11,16 @@ keyboard button. This allows comparison of different keyboard layouts.
 A paragraph of lorem ipsum text result in the following output:
 
 ```text
-$ java -jar ke.jar KeystrokeEnumerator/core/src/test/resources/singleFiles/lorem.txt 
+java -jar app/build/libs/ke.jar ~/IdeaProjects/KeystrokeEnumerator/core/src/test/resources/singleFiles/lorem.txt 
 
-Scanned 1 files of 977 bytes in 48.262559ms
+Scanned 1 files of 977 bytes in 0.045s
 Found 34 unique in 977 symbols on 1 lines
 
-Layout  Keystrokes      Redundancy
-DE_CH   992             0.015
-EN_US   992             0.015
+Layout  Keystrokes      Redundancy[%]
+DE_CH   992             1.535
+EN_US   992             1.535
+
+First and last layout provide the same efficiency.
 
 ```
 

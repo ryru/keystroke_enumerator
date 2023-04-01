@@ -11,23 +11,28 @@ keyboard button. This allows comparison of different keyboard layouts.
 A paragraph of lorem ipsum text result in the following output:
 
 ```text
-java -jar app/build/libs/ke.jar ~/IdeaProjects/KeystrokeEnumerator/core/src/test/resources/singleFiles/lorem.txt 
+java -jar ke.jar Mondnacht.txt 
 
-Scanned 1 files of 977 bytes in 0.045s
-Found 34 unique in 977 symbols on 1 lines
+Scanned 1 files of 341 bytes in 0.047s
+Found 41 unique in 323 symbols on 14 lines
 
 Layout  Keystrokes      Redundancy[%]
-DE_CH   992             1.535
-EN_US   992             1.535
+DE_CH   380             17.647
+EN_US   424             31.269
 
-First and last layout provide the same efficiency.
+Layout DE_CH requires 44 keystrokes (11.579%) less than layout EN_US
 
 ```
 
-* The text contains 977 symbols or characters. Of these only 34 symbols are unique, meaning for
-  example the letter `a` is used 62 times.
+* The text contains 323 symbols or characters. Of these 41 symbols are unique, meaning for example
+  the letter `a` is used 13 times.
 
-* For the keyboard _Layout_ DE_CH and EN_US the text can be written in 992
-  _Keystrokes_. The theoretical ideal or perfect keyboard layout would require exactly the amount of
-  keystrokes as letters are typed, meaning the given layouts have some kind of redundancy (e.g. `A`
-  requires two keystrokes). _Redundancy_ for both layouts is 1.5%.
+* The input text is a German poem requiring on 380 _Keystrokes_ on a german based _Layout_.
+
+* On an english based _Layout_ 424 _Keystrokes_ are needed to get all the German letters like `ä`.
+
+* The _Redundancy_, measured in percent, describes the deviation of a theoretical perfect keyboard
+  layout requiring only 323 keystrokes for a text of 323 symbols.
+
+* Comparing the two layouts the German based layout is more efficient because requires 44 keystrokes
+  or 11.6% less than the English based layout.

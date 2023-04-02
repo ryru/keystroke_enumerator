@@ -21,3 +21,14 @@ jobs:
           cache: gradle
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Archive test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: report
+          path: core/build/reports/
+      - name: Archive artefacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: |
+            app/build/libs/

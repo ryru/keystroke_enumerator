@@ -39,7 +39,7 @@ Layout DE_CH requires 44 keystrokes (11.579%) less than layout EN_US
 * Comparing the two layouts the German based layout is more efficient because requires 44 keystrokes
   or 11.6% less than the English based layout.
 
-## Usage
+## Build an run
 
 Clone to local disk, build with gradle and run the command line tool with the project as input:
 

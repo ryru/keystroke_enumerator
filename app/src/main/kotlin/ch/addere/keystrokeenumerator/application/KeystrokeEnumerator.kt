@@ -3,6 +3,7 @@ package ch.addere.keystrokeenumerator.application
 import domain.model.FileResult
 import domain.model.layout.LayoutFiles.DE_CH
 import domain.model.layout.LayoutFiles.EN_US
+import domain.model.layout.LayoutFiles.FR_CH
 import domain.model.layout.LayoutResult
 import domain.model.symbol.Symbol
 import domain.service.FileTreeProcessorImpl
@@ -46,7 +47,7 @@ private fun processFiles(filePath: String): TimedValue<List<FileResult>> {
 
 private fun toStrokesPerLayouts(symbolToOccurrence: Map<Symbol, Int>): List<LayoutResult> {
     val layoutLoader = LayoutLoader()
-    val layouts = layoutLoader.loadLayouts(listOf(DE_CH, EN_US))
+    val layouts = layoutLoader.loadLayouts(listOf(DE_CH, EN_US, FR_CH))
 
     val strokesPerLayouts = mutableListOf<LayoutResult>()
     for (layout in layouts) {

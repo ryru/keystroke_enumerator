@@ -1,0 +1,7 @@
+[versions]
+assertj-version = "3.24.2"
+commons-csv-version = "1.10.0"
+
+[libraries]
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj-version" }
+commons-csv = { module = "org.apache.commons:commons-csv", version.ref = "commons-csv-version" }

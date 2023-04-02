@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.8.0"
     application
+    kotlin("jvm") version "1.8.0"
 }
 
 group = "ch.addere.keystrokeenumerator"
@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     implementation(project(":core"))
+
     testImplementation(kotlin("test"))
 }
 

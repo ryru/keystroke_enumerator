@@ -47,3 +47,7 @@ $ cd keystroke_enumerator/
 $ ./gradlew clean build
 $ java -jar app/build/libs/ke.jar .
 ```
+
+## Contribution
+
+Pull requests are welcome! Check [CONTRIBUTING.md](CONTRIBUTING.md) before starting any work.

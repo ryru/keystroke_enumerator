@@ -1,3 +1,5 @@
+[![CI Build](https://github.com/ryru/keystroke_enumerator/actions/workflows/build.yml/badge.svg)](https://github.com/ryru/keystroke_enumerator/actions/workflows/build.yml)
+
 # 🅺🅴 Keystroke Enumerator
 
 Count effective keystrokes made to type files based on keyboard layouts.

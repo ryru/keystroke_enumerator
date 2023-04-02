@@ -10,7 +10,7 @@ keyboard button. This allows comparison of different keyboard layouts.
 
 A paragraph of lorem ipsum text result in the following output:
 
-```text
+```
 java -jar ke.jar Mondnacht.txt 
 
 Scanned 1 files of 341 bytes in 0.047s
@@ -36,3 +36,14 @@ Layout DE_CH requires 44 keystrokes (11.579%) less than layout EN_US
 
 * Comparing the two layouts the German based layout is more efficient because requires 44 keystrokes
   or 11.6% less than the English based layout.
+
+## Usage
+
+Clone to local disk, build with gradle and run the command line tool with the project as input:
+
+```
+$ git clone https://github.com/ryru/keystroke_enumerator.git
+$ cd keystroke_enumerator/
+$ ./gradlew clean build
+$ java -jar app/build/libs/ke.jar .
+```

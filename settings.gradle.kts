@@ -1,4 +1,4 @@
-rootProject.name = "Keystroke Enumerator"
+rootProject.name = "KeystrokeEnumerator"
 
 include (
     "app",

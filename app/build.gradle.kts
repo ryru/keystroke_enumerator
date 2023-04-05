@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "ch.addere.keystrokeenumerator"
-version = "0.1.0-SNAPSHOT"
+version = File("$projectDir/../version.txt").readText()
 
 repositories {
     mavenCentral()
@@ -49,4 +49,10 @@ tasks.withType<Jar> {
     from({
         configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
     })
+}
+
+distributions {
+    main {
+        distributionBaseName.set("ke")
+    }
 }

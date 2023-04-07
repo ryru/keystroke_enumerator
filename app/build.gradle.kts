@@ -56,3 +56,7 @@ distributions {
         distributionBaseName.set("ke")
     }
 }
+
+tasks.withType<CreateStartScripts> {
+    applicationName = "ke"
+}

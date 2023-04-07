@@ -22,7 +22,7 @@ following layouts are implemented:
 A German poem result in the following output:
 
 ```
-$ java -jar ke.jar Mondnacht.txt 
+$ ke Mondnacht.txt 
 
 Scanned 1 files of 341 bytes in 0.039s
 Found 41 unique in 323 symbols on 14 lines
@@ -57,11 +57,11 @@ Layout DE_DE requires 59 keystrokes (16.164%) less than layout EN_US
 Clone to local disk, build with gradle and run the command line tool with the project as input.
 Requires Java 19 or newer.
 
-```shell
+```
 git clone https://github.com/ryru/keystroke_enumerator.git
 cd keystroke_enumerator/
 ./gradlew clean installDist
-./app/build/install/ke/bin/app .
+./app/build/install/ke/bin/ke .
 ```
 
 ## Contribution

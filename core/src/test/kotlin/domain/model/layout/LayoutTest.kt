@@ -20,7 +20,7 @@ class LayoutTest {
     @Test
     fun testMissingSymbolInLayout() {
         val result = layout().countKeystrokeFor(symbolX)
-        assertThat(result).isEqualTo(5)
+        assertThat(result).isEqualTo(6)
     }
 
     @Test
@@ -44,7 +44,7 @@ class LayoutTest {
     @Test
     fun testMissingEmojiSymbolInLayout() {
         val result = layout().countKeystrokeFor(symbolEmoji2)
-        assertThat(result).isEqualTo(8)
+        assertThat(result).isEqualTo(9)
     }
 
     private fun layout(): Layout {

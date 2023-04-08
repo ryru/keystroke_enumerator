@@ -17,6 +17,9 @@ following layouts are implemented:
 * `fr-CH`
 * `fr-FR`
 
+Symbols that are not included in the file are counted as Unicode characters. E.g. the letter `ä` can
+be written as `Ctrl`+`Shift`+`u`, `e`, `4`, `Space` requiring 6 keystrokes.
+
 ## Example
 
 A German poem result in the following output:
@@ -24,33 +27,34 @@ A German poem result in the following output:
 ```
 $ ke Mondnacht.txt 
 
-Scanned 1 files of 341 bytes in 0.039s
+Scanned 1 files of 341 bytes in 0.044s
 Found 41 unique in 323 symbols on 14 lines
 
 Layout  Keystrokes      Redundancy[%]
-DE_DE   365             13.003
+DE_DE   368             13.932
 FR_FR   368             13.932
-DE_CH   380             17.647
-FR_CH   389             20.433
-EN_US   424             31.269
+DE_CH   383             18.576
+FR_CH   392             21.362
+EN_US   427             32.198
 
-Layout DE_DE requires 59 keystrokes (16.164%) less than layout EN_US
+Layout DE_DE requires 59 keystrokes (16.033%) less than layout EN_US
 
 ```
 
 * The text contains 323 symbols or characters. Of these 41 symbols are unique, meaning for example
   the letter `a` is used 13 times.
 
-* The input text is a German poem requiring 365 _Keystrokes_ on a German _Layout_ and 380
-  _Keystrokes_ on a German based _Layout_ such as the Swiss German `DE_CH`.
+* The input text is a German poem requiring 368 _Keystrokes_ on a German _Layout_ and 383
+  _Keystrokes_ on a German based Swiss German `DE_CH` _Layout_.
 
-* On an english based _Layout_ 424 _Keystrokes_ are needed to get all the German letters like `ä`.
+* On an english based _Layout_ 427 _Keystrokes_ are needed to get all the German letters like `ä`.
+  These letters are assumed to be types as Unicode combinations.
 
 * The _Redundancy_, measured in percent, describes the deviation of a theoretical perfect keyboard
   layout requiring only 323 keystrokes for a text of 323 symbols.
 
 * Comparing the first and last layouts the German based layout is more efficient and requires 59
-  keystrokes or 16.2% less than the English based layout.
+  keystrokes or 16% less than the English based layout.
 
 ## Build and run
 

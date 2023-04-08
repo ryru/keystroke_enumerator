@@ -14,6 +14,8 @@ repositories {
 dependencies {
     implementation(project(":core"))
 
+    implementation(libs.clikt)
+
     testImplementation(kotlin("test"))
 }
 

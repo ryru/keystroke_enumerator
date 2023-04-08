@@ -41,6 +41,9 @@ tasks.withType<Jar> {
         attributes["Main-Class"] = "ch.addere.keystrokeenumerator.application.KeystrokeEnumeratorKt"
     }
 
+    // add version.txt into jar
+    from(layout.projectDirectory.file("../version.txt"))
+
     // To avoid the duplicate handling strategy error
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 

@@ -15,6 +15,7 @@ dependencies {
     implementation(project(":core"))
 
     implementation(libs.clikt)
+    implementation(libs.koin)
 
     testImplementation(kotlin("test"))
 }

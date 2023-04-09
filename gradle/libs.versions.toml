@@ -2,12 +2,14 @@
 assertj-version = "3.24.2"
 clikt-version = "3.5.2"
 commons-csv-version = "1.10.0"
+koin-version = "3.4.0"
 kotlin-version = "1.8.0"
 
 [libraries]
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj-version" }
 clikt = { module = "com.github.ajalt.clikt:clikt", version.ref = "clikt-version" }
 commons-csv = { module = "org.apache.commons:commons-csv", version.ref = "commons-csv-version" }
+koin = { module = "io.insert-koin:koin-core", version.ref = "koin-version" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }

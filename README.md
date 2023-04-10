@@ -2,7 +2,16 @@
 
 # 🅺🅴 Keystroke Enumerator
 
-Count effective keystrokes made to type files based on keyboard layouts.
+Multi-platform tool to count the number of keystrokes needed to write a file or multiple files in a
+folder.
+
+This CLI tools can be of value in situations such as:
+
+* Is keyboard layout X more efficient than layout Y?
+* In codie golf to count symbols and keystrokes
+* Comparing programming languages syntax
+
+## How it works
 
 To type the letter `a` one keystroke is required. Two keystrokes (SHIFT+A) are needed to type the
 capital version `A`. The goal of the application is to count exactly how many times one pushes a
@@ -59,7 +68,7 @@ Layout DE_DE requires 59 keystrokes (16.033%) less than layout EN_US
 ## Build and run
 
 Clone to local disk, build with gradle and run the command line tool with the project as input.
-Requires Java 19 or newer.
+This tool runs on any ON that runs Java 19 or newer.
 
 ```
 git clone https://github.com/ryru/keystroke_enumerator.git

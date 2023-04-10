@@ -2,22 +2,38 @@ package ch.addere.keystrokeenumerator.application
 
 import ch.addere.keystrokeenumerator.domain.model.AppSettings
 import ch.addere.keystrokeenumerator.domain.service.ExecutionService
-import ch.addere.keystrokeenumerator.domain.service.output.PrinterService
 import ch.addere.keystrokeenumerator.infrastructure.modules.appModule
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.core.PrintMessage
 import com.github.ajalt.clikt.parameters.arguments.argument
+import com.github.ajalt.clikt.parameters.arguments.optional
 import com.github.ajalt.clikt.parameters.options.eagerOption
+import com.github.ajalt.clikt.parameters.options.flag
+import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.path
+import domain.model.layout.LayoutFiles.DE_CH
+import domain.model.layout.LayoutFiles.DE_DE
+import domain.model.layout.LayoutFiles.EN_US
+import domain.model.layout.LayoutFiles.FR_CH
+import domain.model.layout.LayoutFiles.FR_FR
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin
 import org.koin.core.parameter.parametersOf
+import java.lang.IllegalArgumentException
 import java.nio.file.Path
 
-class KeystrokeEnumerator : CliktCommand(), KoinComponent {
+class KeystrokeEnumerator :
+    CliktCommand(help = "Enumerate keystrokes in FILE per keyboard layout."),
+    KoinComponent {
 
-    private val file: Path by argument(help = "File or Path to enumerate keystrokes over").path()
+    private val file: Path? by argument().path().optional()
+
+    private val isPrintSupportedLayouts: Boolean by option(
+        "--supported-layouts",
+        help = "awesome"
+    ).flag(default = false)
+
 
     init {
         startKoin {
@@ -32,13 +48,17 @@ class KeystrokeEnumerator : CliktCommand(), KoinComponent {
     }
 
     override fun run() {
-        val settings = AppSettings(path = file)
+        val settings = AppSettings(
+            path = file,
+            layouts = listOf(DE_CH, DE_DE, EN_US, FR_CH, FR_FR),
+            isPrintSupportedLayouts = isPrintSupportedLayouts
+        )
         val executionService: ExecutionService by inject { parametersOf(settings) }
-        val outputData = executionService.execute()
-
-        val printerService: PrinterService by inject { parametersOf(outputData) }
-        printerService.printHead()
-        printerService.printTable()
+        try {
+            executionService.run()
+        } catch (e: IllegalArgumentException) {
+            throw PrintMessage("error: ${e.message}")
+        }
     }
 }
 

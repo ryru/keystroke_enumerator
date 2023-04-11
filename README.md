@@ -65,6 +65,45 @@ Layout DE_DE requires 59 keystrokes (16.033%) less than layout EN_US
 * Comparing the first and last layouts the German based layout is more efficient and requires 59
   keystrokes or 16% less than the English based layout.
 
+## Compare programming language syntax
+
+Comparing a simple hello world program according
+to [Rosetta](https://rosettacode.org/wiki/Hello_world/Text) examples on a US keyboard layout:
+
+* C, 82 keystrokes
+* Java, 128 keystrokes
+* Kotlin, 53 keystrokes
+
+### Hello World in C
+
+```c
+#include<stdio.h>
+
+int main()
+{
+	return printf("\nHello World!");
+}
+```
+
+### Hello World in Java
+
+```java
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
+    }
+}
+```
+
+### Hello World in Kotlin
+
+```kotlin
+fun main() {
+    println("Hello world!")
+}
+```
+
 ## Build and run
 
 Clone to local disk, build with gradle and run the command line tool with the project as input.
@@ -76,6 +115,11 @@ cd keystroke_enumerator/
 ./gradlew clean installDist
 ./app/build/install/ke/bin/ke .
 ```
+
+## Known limitations
+
+* Issue #2: File type whitelisting is very limited currently (bat, c, cpp, css, h, html, java, js,
+  json, kt, kts, md, pl, sh, ts, txt, xml)
 
 ## Contribution
 

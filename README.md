@@ -78,11 +78,7 @@ cd keystroke_enumerator/
 
 Currently, the following keyboard layouts are supported:
 
-* `de-CH`
-* `de-DE`
-* `en-US`
-* `fr-CH`
-* `fr-FR`
+`de-CH`, `de-DE`, `en-US`, `fr-CH`, `fr-FR`
 
 The [keyboard layouts](core/src/main/resources/layouts) are defined in CSV files. Feel free to add
 additional keyboard layouts in PR.
@@ -91,23 +87,7 @@ additional keyboard layouts in PR.
 
 Also known as file extensions. Currently, the following file types are supported:
 
-* `c`
-* `cpp`
-* `css`
-* `hs`
-* `html`
-* `java`
-* `js`
-* `json`
-* `kt`
-* `md`
-* `pl`
-* `py`
-* `rs`
-* `sh`
-* `ts`
-* `txt`
-* `xml`
+`c`, `cpp`, `css`, `hs`, `html`, `java`, `js`, `json`, `kt`, `md`, `pl`, `py`, `rs`, `sh`, `ts`, `txt`, `xml`
 
 And some other less know ones. The full list is defined
 in [FileExtension.kt](core/src/main/kotlin/ch/addere/keystrokeenumerator/core/domain/model/fileextension/FileExtension.kt).

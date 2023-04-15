@@ -10,7 +10,7 @@ class FileTreeProcessorImplTest {
 
     @Test
     fun testReadTestResourceTree() {
-        val fileTreeProcessor = FileTreeProcessorImpl(FileProcessorImpl(FileExtensionService()))
+        val fileTreeProcessor = FileTreeProcessorImpl(FileExtensionService(), FileProcessorImpl())
 
         val fileTree = File("src/test/resources/fileTree/")
         val results = fileTreeProcessor.countSymbolsWithinFileTree(fileTree, UTF_8)

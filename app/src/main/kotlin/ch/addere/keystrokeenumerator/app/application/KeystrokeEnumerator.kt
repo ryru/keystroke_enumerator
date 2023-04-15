@@ -23,6 +23,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.parameter.parametersOf
 import java.lang.IllegalArgumentException
 import java.nio.file.Path
+import kotlin.text.Charsets.UTF_8
 
 class KeystrokeEnumerator :
     CliktCommand(help = "Enumerate keystrokes in FILE per keyboard layout."),
@@ -44,7 +45,7 @@ class KeystrokeEnumerator :
 
         eagerOption(names = setOf("-V", "--version"), help = "Show version number and exit") {
             val versionFromFile = javaClass.classLoader.getResourceAsStream("version.txt")!!
-                .bufferedReader(Charsets.UTF_8).readLine()
+                .bufferedReader(UTF_8).readLine()
             throw PrintMessage(versionFromFile)
         }
     }

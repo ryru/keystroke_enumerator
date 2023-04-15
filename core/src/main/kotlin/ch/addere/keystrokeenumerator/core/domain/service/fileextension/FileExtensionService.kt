@@ -5,10 +5,6 @@ import java.util.Optional
 
 class FileExtensionService {
 
-    fun isSupportedFileExtension(extension: String): Boolean {
-        return fileExtension(extension).isPresent
-    }
-
     fun fileExtension(extension: String): Optional<FileExtension> {
         return Optional.ofNullable(FileExtension.values().find { it.extension == extension })
     }

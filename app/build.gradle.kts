@@ -32,14 +32,14 @@ kotlin {
 }
 
 application {
-    mainClass.set("ch.addere.keystrokeenumerator.application.KeystrokeEnumeratorKt")
+    mainClass.set("ch.addere.keystrokeenumerator.app.application.KeystrokeEnumeratorKt")
 }
 
 tasks.withType<Jar> {
     archiveFileName.set("ke.jar")
 
     manifest {
-        attributes["Main-Class"] = "ch.addere.keystrokeenumerator.application.KeystrokeEnumeratorKt"
+        attributes["Main-Class"] = "ch.addere.keystrokeenumerator.app.application.KeystrokeEnumeratorKt"
     }
 
     // add version.txt into jar

@@ -1,11 +1,11 @@
-package domain.model.layout
+package ch.addere.keystrokeenumerator.domain.model.layout
 
-import domain.model.key.SymbolKeyStroke
-import domain.model.key.VirtualKey.CONTROL
-import domain.model.key.VirtualKey.SHIFT
-import domain.model.key.VirtualKey.SPACE
-import domain.model.key.VirtualKey.U
-import domain.model.symbol.Symbol
+import ch.addere.keystrokeenumerator.domain.model.key.SymbolKeyStroke
+import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.CONTROL
+import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.SHIFT
+import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.SPACE
+import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.U
+import ch.addere.keystrokeenumerator.domain.model.symbol.Symbol
 
 private const val BITS_PER_HEX_SYMBOL = 4
 

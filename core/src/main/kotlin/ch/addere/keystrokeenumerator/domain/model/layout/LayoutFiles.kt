@@ -1,4 +1,4 @@
-package domain.model.layout
+package ch.addere.keystrokeenumerator.domain.model.layout
 
 enum class LayoutFiles(val filename: String) {
     DE_CH("de-CH.csv"),

@@ -1,7 +1,7 @@
 package ch.addere.keystrokeenumerator.domain.model.output
 
-import domain.model.FileResult
-import domain.model.layout.LayoutResult
+import ch.addere.keystrokeenumerator.domain.model.FileResult
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutResult
 import kotlin.time.Duration
 
 data class OutputData(

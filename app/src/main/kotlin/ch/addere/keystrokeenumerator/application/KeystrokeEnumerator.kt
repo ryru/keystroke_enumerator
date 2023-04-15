@@ -11,11 +11,11 @@ import com.github.ajalt.clikt.parameters.options.eagerOption
 import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.path
-import domain.model.layout.LayoutFiles.DE_CH
-import domain.model.layout.LayoutFiles.DE_DE
-import domain.model.layout.LayoutFiles.EN_US
-import domain.model.layout.LayoutFiles.FR_CH
-import domain.model.layout.LayoutFiles.FR_FR
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutFiles.DE_CH
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutFiles.DE_DE
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutFiles.EN_US
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutFiles.FR_CH
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutFiles.FR_FR
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin

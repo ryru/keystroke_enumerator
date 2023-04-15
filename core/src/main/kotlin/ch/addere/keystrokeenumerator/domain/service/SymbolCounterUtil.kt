@@ -1,7 +1,7 @@
-package domain.service
+package ch.addere.keystrokeenumerator.domain.service
 
-import domain.model.symbol.Symbol
-import domain.model.symbol.SymbolCounter
+import ch.addere.keystrokeenumerator.domain.model.symbol.Symbol
+import ch.addere.keystrokeenumerator.domain.model.symbol.SymbolCounter
 
 
 /**

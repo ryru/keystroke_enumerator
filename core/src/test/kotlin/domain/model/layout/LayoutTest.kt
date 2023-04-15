@@ -1,11 +1,12 @@
 package domain.model.layout
 
-import domain.model.key.SymbolKeyStroke
-import domain.model.key.VirtualKey.A
-import domain.model.key.VirtualKey.B
-import domain.model.key.VirtualKey.E
-import domain.model.key.VirtualKey.SHIFT
-import domain.model.symbol.Symbol
+import ch.addere.keystrokeenumerator.domain.model.key.SymbolKeyStroke
+import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.A
+import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.B
+import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.E
+import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.SHIFT
+import ch.addere.keystrokeenumerator.domain.model.layout.Layout
+import ch.addere.keystrokeenumerator.domain.model.symbol.Symbol
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

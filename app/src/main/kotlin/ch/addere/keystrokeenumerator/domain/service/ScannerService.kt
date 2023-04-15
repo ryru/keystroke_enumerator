@@ -2,12 +2,12 @@ package ch.addere.keystrokeenumerator.domain.service
 
 import ch.addere.keystrokeenumerator.domain.model.AppSettings
 import ch.addere.keystrokeenumerator.domain.model.output.OutputData
-import domain.model.FileResult
-import domain.model.layout.LayoutResult
-import domain.model.symbol.Symbol
-import domain.service.FileTreeProcessor
-import domain.service.load.LayoutLoader
-import domain.service.mergeSymbolCounters
+import ch.addere.keystrokeenumerator.domain.model.FileResult
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutResult
+import ch.addere.keystrokeenumerator.domain.model.symbol.Symbol
+import ch.addere.keystrokeenumerator.domain.service.FileTreeProcessor
+import ch.addere.keystrokeenumerator.domain.service.load.LayoutLoader
+import ch.addere.keystrokeenumerator.domain.service.mergeSymbolCounters
 import java.nio.file.Path
 import kotlin.text.Charsets.UTF_8
 import kotlin.time.ExperimentalTime

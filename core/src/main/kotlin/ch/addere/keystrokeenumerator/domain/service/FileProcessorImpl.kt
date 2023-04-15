@@ -1,9 +1,9 @@
-package domain.service
+package ch.addere.keystrokeenumerator.domain.service
 
-import domain.model.FileResult
-import domain.model.symbol.LINE_BREAK
-import domain.model.symbol.Symbol
-import domain.model.symbol.SymbolCounter
+import ch.addere.keystrokeenumerator.domain.model.FileResult
+import ch.addere.keystrokeenumerator.domain.model.symbol.LINE_BREAK
+import ch.addere.keystrokeenumerator.domain.model.symbol.Symbol
+import ch.addere.keystrokeenumerator.domain.model.symbol.SymbolCounter
 import java.io.File
 import java.nio.charset.Charset
 import kotlin.streams.toList

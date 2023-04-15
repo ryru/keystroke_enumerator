@@ -1,4 +1,4 @@
-package domain.model.symbol
+package ch.addere.keystrokeenumerator.domain.model.symbol
 
 class SymbolCounter {
 

@@ -1,7 +1,7 @@
-package domain.model
+package ch.addere.keystrokeenumerator.domain.model
 
-import domain.model.symbol.LINE_BREAK
-import domain.model.symbol.SymbolCounter
+import ch.addere.keystrokeenumerator.domain.model.symbol.LINE_BREAK
+import ch.addere.keystrokeenumerator.domain.model.symbol.SymbolCounter
 
 data class FileResult(
     val fileExtension: String,

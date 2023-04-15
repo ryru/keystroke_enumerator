@@ -1,6 +1,6 @@
 package ch.addere.keystrokeenumerator.domain.model
 
-import domain.model.layout.LayoutFiles
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutFiles
 import java.nio.file.Path
 
 data class AppSettings(

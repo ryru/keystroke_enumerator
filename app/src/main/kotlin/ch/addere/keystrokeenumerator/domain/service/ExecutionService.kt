@@ -2,7 +2,7 @@ package ch.addere.keystrokeenumerator.domain.service
 
 import ch.addere.keystrokeenumerator.domain.model.AppSettings
 import ch.addere.keystrokeenumerator.domain.service.output.PrinterService
-import domain.model.layout.LayoutFiles
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutFiles
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.parameter.parametersOf

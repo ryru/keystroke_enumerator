@@ -1,10 +1,10 @@
-package domain.service.load
+package ch.addere.keystrokeenumerator.domain.service.load
 
-import domain.model.key.SymbolKeyStroke
-import domain.model.key.parse
-import domain.model.layout.Layout
-import domain.model.layout.LayoutFiles
-import domain.model.symbol.from
+import ch.addere.keystrokeenumerator.domain.model.key.SymbolKeyStroke
+import ch.addere.keystrokeenumerator.domain.model.key.parse
+import ch.addere.keystrokeenumerator.domain.model.layout.Layout
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutFiles
+import ch.addere.keystrokeenumerator.domain.model.symbol.from
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVRecord
 import java.io.InputStream

@@ -1,6 +1,6 @@
 package ch.addere.keystrokeenumerator.core.domain.service
 
-import domain.service.FileTreeProcessorImpl
+import ch.addere.keystrokeenumerator.domain.service.FileTreeProcessorImpl
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.io.File

@@ -1,4 +1,4 @@
-package domain.model.symbol
+package ch.addere.keystrokeenumerator.domain.model.symbol
 
 /**
  * Represents any type sign that changes a document. A symbol can be any regular character or number

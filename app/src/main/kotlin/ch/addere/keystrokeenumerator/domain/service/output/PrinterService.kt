@@ -1,8 +1,8 @@
 package ch.addere.keystrokeenumerator.domain.service.output
 
 import ch.addere.keystrokeenumerator.domain.model.output.OutputData
-import domain.model.FileResult
-import domain.model.layout.LayoutResult
+import ch.addere.keystrokeenumerator.domain.model.FileResult
+import ch.addere.keystrokeenumerator.domain.model.layout.LayoutResult
 import kotlin.time.Duration
 import kotlin.time.DurationUnit
 

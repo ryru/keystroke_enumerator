@@ -1,4 +1,4 @@
-package domain.model.key
+package ch.addere.keystrokeenumerator.domain.model.key
 
 import kotlin.IllegalArgumentException
 

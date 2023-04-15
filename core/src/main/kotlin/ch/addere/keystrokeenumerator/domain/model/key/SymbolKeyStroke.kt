@@ -1,6 +1,6 @@
-package domain.model.key
+package ch.addere.keystrokeenumerator.domain.model.key
 
-import domain.model.symbol.Symbol
+import ch.addere.keystrokeenumerator.domain.model.symbol.Symbol
 
 /**
  * A symbol maps to a list of keystrokes.

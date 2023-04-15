@@ -24,4 +24,7 @@ enum class FileExtensionName(val extensionName: String, val extensionType: FileE
     XML("XML", MARKUP),
     SHELL("Shell", PROGRAMMING),
     TYPE_SCRIPT("TypeScript", PROGRAMMING),
+    RUST("Rust", PROGRAMMING),
+    HASKELL("Haskell", PROGRAMMING),
+    PYTHON("Python", PROGRAMMING),
 }

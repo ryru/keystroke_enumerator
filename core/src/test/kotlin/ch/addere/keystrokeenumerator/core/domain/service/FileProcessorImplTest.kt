@@ -2,7 +2,7 @@ package ch.addere.keystrokeenumerator.core.domain.service
 
 import ch.addere.keystrokeenumerator.core.domain.model.FileResult
 import ch.addere.keystrokeenumerator.core.domain.model.fileextension.FileExtension.C_C
-import ch.addere.keystrokeenumerator.core.domain.model.fileextension.FileExtension.TXT
+import ch.addere.keystrokeenumerator.core.domain.model.fileextension.FileExtension.TEXT_TXT
 import ch.addere.keystrokeenumerator.core.domain.model.symbol.A
 import ch.addere.keystrokeenumerator.core.domain.model.symbol.A_CAPITAL
 import ch.addere.keystrokeenumerator.core.domain.model.symbol.B
@@ -71,7 +71,7 @@ class FileProcessorImplTest {
     @Test
     fun testLoremIpsum() {
         val lorem = File("src/test/resources/singleFiles/lorem.txt")
-        val result = fileProcessor.countSymbols(lorem, TXT, UTF_8)
+        val result = fileProcessor.countSymbols(lorem, TEXT_TXT, UTF_8)
 
         assertEquals(977, result.totalSymbolsProcessed())
         assertEquals(977, result.fileSize)
@@ -242,7 +242,7 @@ class FileProcessorImplTest {
         @Test
         fun testReadSpecialCharactersInUtf8() {
             val specialFile = File("src/test/resources/singleFiles/special_characters_utf8.txt")
-            val result = fileProcessor.countSymbols(specialFile, TXT, UTF_8)
+            val result = fileProcessor.countSymbols(specialFile, TEXT_TXT, UTF_8)
 
             assertEquals("txt", result.fileExtension.extension)
             assertEquals(69, result.fileSize)
@@ -253,7 +253,7 @@ class FileProcessorImplTest {
         @Test
         fun testReadSpecialCharactersInUtf16() {
             val specialFile = File("src/test/resources/singleFiles/special_characters_utf16.txt")
-            val result = fileProcessor.countSymbols(specialFile, TXT, UTF_16)
+            val result = fileProcessor.countSymbols(specialFile, TEXT_TXT, UTF_16)
 
             assertEquals("txt", result.fileExtension.extension)
             assertEquals(72, result.fileSize)
@@ -270,7 +270,7 @@ class FileProcessorImplTest {
         @Test
         fun testReadEmojiSymbolsInUtf8() {
             val emojiFile = File("src/test/resources/singleFiles/emoji_utf8.txt")
-            val result = fileProcessor.countSymbols(emojiFile, TXT, UTF_8)
+            val result = fileProcessor.countSymbols(emojiFile, TEXT_TXT, UTF_8)
 
             assertEquals("txt", result.fileExtension.extension)
             assertEquals(32, result.fileSize)
@@ -281,7 +281,7 @@ class FileProcessorImplTest {
         @Test
         fun testReadEmojiSymbolsInUtf16() {
             val emojiFile = File("src/test/resources/singleFiles/emoji_utf16.txt")
-            val result = fileProcessor.countSymbols(emojiFile, TXT, UTF_16)
+            val result = fileProcessor.countSymbols(emojiFile, TEXT_TXT, UTF_16)
 
             assertEquals("txt", result.fileExtension.extension)
             assertEquals(38, result.fileSize)

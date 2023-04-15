@@ -7,24 +7,15 @@ folder.
 
 This CLI tools can be of value in situations such as:
 
-* Is keyboard layout X more efficient than layout Y?
-* In codie golf to count symbols and keystrokes
+* Comparing keyboard layouts against each other
+* Count symbols and keystrokes in code golf games
 * Comparing programming languages syntax
 
 ## How it works
 
 To type the letter `a` one keystroke is required. Two keystrokes (SHIFT+A) are needed to type the
-capital version `A`. The goal of the application is to count exactly how many times one pushes a
-keyboard button. This allows comparison of different keyboard layouts.
-
-The [keyboard layouts](core/src/main/resources/layouts) are defined in CSV files. Currently, the
-following layouts are implemented:
-
-* `de-CH`
-* `de-DE`
-* `en-US`
-* `fr-CH`
-* `fr-FR`
+capital version `A`. The goal of this application is to count exactly how many times one pushes a
+keyboard button for given files. This allows comparison of different keyboard layouts.
 
 Symbols that are not included in the file are counted as Unicode characters. E.g. the letter `ä` can
 be written as `Ctrl`+`Shift`+`u`, `e`, `4`, `Space` requiring 6 keystrokes.
@@ -65,44 +56,9 @@ Layout DE_DE requires 59 keystrokes (16.033%) less than layout EN_US
 * Comparing the first and last layouts the German based layout is more efficient and requires 59
   keystrokes or 16% less than the English based layout.
 
-## Compare programming language syntax
+More examples in examples:
 
-Comparing a simple hello world program according
-to [Rosetta](https://rosettacode.org/wiki/Hello_world/Text) examples on a US keyboard layout:
-
-* C, 82 keystrokes
-* Java, 128 keystrokes
-* Kotlin, 53 keystrokes
-
-### Hello World in C
-
-```c
-#include<stdio.h>
-
-int main()
-{
-	return printf("\nHello World!");
-}
-```
-
-### Hello World in Java
-
-```java
-public class HelloWorld {
-
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
-}
-```
-
-### Hello World in Kotlin
-
-```kotlin
-fun main() {
-    println("Hello world!")
-}
-```
+* [Compare programming language syntax](examples/programming_syntax)
 
 ## Build and run
 
@@ -116,10 +72,46 @@ cd keystroke_enumerator/
 ./app/build/install/ke/bin/ke .
 ```
 
-## Known limitations
+## Supported Layouts and File Types
 
-* Issue #2: File type whitelisting is very limited currently (bat, c, cpp, css, h, html, java, js,
-  json, kt, kts, md, pl, sh, ts, txt, xml)
+### Layouts
+
+Currently, the following keyboard layouts are supported:
+
+* `de-CH`
+* `de-DE`
+* `en-US`
+* `fr-CH`
+* `fr-FR`
+
+The [keyboard layouts](core/src/main/resources/layouts) are defined in CSV files. Feel free to add
+additional keyboard layouts in PR.
+
+### File Types
+
+Also known as file extensions. Currently, the following file types are supported:
+
+* `c`
+* `cpp`
+* `css`
+* `hs`
+* `html`
+* `java`
+* `js`
+* `json`
+* `kt`
+* `md`
+* `pl`
+* `py`
+* `rs`
+* `sh`
+* `ts`
+* `txt`
+* `xml`
+
+And some other less know ones. The full list is defined
+in [FileExtension.kt](core/src/main/kotlin/ch/addere/keystrokeenumerator/core/domain/model/fileextension/FileExtension.kt).
+Feel free to add additional keyboard layouts in PR.
 
 ## Contribution
 

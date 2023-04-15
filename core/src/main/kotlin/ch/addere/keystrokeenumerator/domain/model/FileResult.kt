@@ -1,10 +1,11 @@
 package ch.addere.keystrokeenumerator.domain.model
 
+import ch.addere.keystrokeenumerator.domain.model.fileextension.FileExtension
 import ch.addere.keystrokeenumerator.domain.model.symbol.LINE_BREAK
 import ch.addere.keystrokeenumerator.domain.model.symbol.SymbolCounter
 
 data class FileResult(
-    val fileExtension: String,
+    val fileExtension: FileExtension,
     val fileSize: Long,
     val symbolCounter: SymbolCounter
 ) {

@@ -1,13 +1,12 @@
 package ch.addere.keystrokeenumerator.core.domain.model.key
 
-import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.N
-import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.OEM_3
-import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.OEM_6
-import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.SHIFT
-import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.SPACE
-import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.TAB
-import ch.addere.keystrokeenumerator.domain.model.key.VirtualKey.TWO
-import ch.addere.keystrokeenumerator.domain.model.key.parse
+import ch.addere.keystrokeenumerator.core.domain.model.key.VirtualKey.N
+import ch.addere.keystrokeenumerator.core.domain.model.key.VirtualKey.OEM_3
+import ch.addere.keystrokeenumerator.core.domain.model.key.VirtualKey.OEM_6
+import ch.addere.keystrokeenumerator.core.domain.model.key.VirtualKey.SHIFT
+import ch.addere.keystrokeenumerator.core.domain.model.key.VirtualKey.SPACE
+import ch.addere.keystrokeenumerator.core.domain.model.key.VirtualKey.TAB
+import ch.addere.keystrokeenumerator.core.domain.model.key.VirtualKey.TWO
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

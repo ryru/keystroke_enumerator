@@ -2,6 +2,7 @@ package ch.addere.keystrokeenumerator.app.domain.service
 
 import ch.addere.keystrokeenumerator.app.domain.model.AppSettings
 import ch.addere.keystrokeenumerator.app.domain.service.output.PrinterService
+import ch.addere.keystrokeenumerator.core.domain.model.fileextension.FileExtension
 import ch.addere.keystrokeenumerator.core.domain.model.layout.LayoutFiles
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
@@ -13,6 +14,11 @@ class ExecutionService(private val settings: AppSettings) : KoinComponent {
 
         if (settings.isPrintSupportedLayouts) {
             LayoutFiles.values().forEach { println(it) }
+            return
+        }
+
+        if (settings.isPrintSupportedFileTypes) {
+            FileExtension.values().forEach { println(it.extension) }
             return
         }
 

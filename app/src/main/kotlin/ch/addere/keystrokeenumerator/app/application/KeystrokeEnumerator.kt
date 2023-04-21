@@ -33,9 +33,13 @@ class KeystrokeEnumerator :
 
     private val isPrintSupportedLayouts: Boolean by option(
         "--supported-layouts",
-        help = "awesome"
+        help = "Print all supported keyboard layouts"
     ).flag(default = false)
 
+    private val isPrintSupportedFileTypes: Boolean by option(
+        "--supported-fileextensions",
+        help = "Print all supported file extensions"
+    ).flag(default = false)
 
     init {
         startKoin {
@@ -54,7 +58,8 @@ class KeystrokeEnumerator :
         val settings = AppSettings(
             path = file,
             layouts = listOf(DE_CH, DE_DE, EN_US, FR_CH, FR_FR),
-            isPrintSupportedLayouts = isPrintSupportedLayouts
+            isPrintSupportedLayouts = isPrintSupportedLayouts,
+            isPrintSupportedFileTypes = isPrintSupportedFileTypes,
         )
         val executionService = get<ExecutionService> { parametersOf(settings) }
         try {
